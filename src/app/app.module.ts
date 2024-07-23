@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { FormsModule } from '@angular/forms';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     AutoCompleteModule,
     FormsModule,
+    CalendarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
