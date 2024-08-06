@@ -13,6 +13,46 @@
     {
       "id": "ae5b",
       "task": "complete poster",
+      "completed": true
+    },
+    {
+      "id": "0b60",
+      "task": "First task",
+      "completed": false
+    },
+    {
+      "id": "f3e2",
+      "task": "Second task",
+      "completed": false
+    },
+    {
+      "id": "eabd",
+      "task": "Thirs task",
+      "completed": true
+    },
+    {
+      "id": "ce55",
+      "task": "Fourth task",
+      "completed": false
+    },
+    {
+      "id": "9c3d",
+      "task": "Fifth Task",
+      "completed": false
+    },
+    {
+      "id": "3828",
+      "task": "Sixth Task",
+      "completed": false
+    },
+    {
+      "id": "4d0e",
+      "task": "Complete todo application using PrimeNG",
+      "completed": false
+    },
+    {
+      "id": "1fbe",
+      "task": "Book bus ticket",
       "completed": false
     }
   ]

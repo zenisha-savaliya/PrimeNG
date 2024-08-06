@@ -1,10 +1,10 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { IToDo } from './interfaces/todo-interface';
-import { compileNgModule } from '@angular/compiler';
-import { ToDoService } from './services/to-do.service';
-import { CheckboxChangeEvent } from 'primeng/checkbox';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgModel } from '@angular/forms';
+import { CheckboxChangeEvent } from 'primeng/checkbox';
 import Swal from 'sweetalert2';
+import { PaginatorState } from './interfaces/page-event.interface';
+import { IToDo } from './interfaces/todo-interface';
+import { ToDoService } from './services/to-do.service';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +15,8 @@ export class AppComponent implements OnInit {
   public title = 'learning-prime-ng';
   public task = '';
   public todos: IToDo[] = [];
+  public first: number = 0;
+  public rows: number = 5;
   @ViewChild('todoTask') todoTask!: NgModel;
 
   constructor(private todoService: ToDoService) {}
@@ -76,5 +78,10 @@ export class AppComponent implements OnInit {
       },
       error: (err) => {},
     });
+  }
+
+  public onPageChange(event: PaginatorState) {
+    if (event.first) this.first = event.first;
+    if (event.rows) this.rows = event.rows;
   }
 }

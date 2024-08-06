@@ -19,7 +19,14 @@
       />
     </div>
     <p class="m-0">
-      <p-table [value]="todos" [tableStyle]="{ 'min-width': '50rem' }">
+      <p-table
+        [value]="todos"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        [paginator]="true"
+        [rows]="rows"
+        [totalRecords]="20"
+        [rowsPerPageOptions]="[5, 10, 20]"
+      >
         <ng-template pTemplate="header">
           <tr>
             <th [width]="'60%'">Task</th>
