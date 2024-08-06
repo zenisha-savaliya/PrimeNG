@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { CheckboxChangeEvent } from 'primeng/checkbox';
 import Swal from 'sweetalert2';
-import { PaginatorState } from './interfaces/page-event.interface';
+import { PaginatorState } from './interfaces/page-state.interface';
 import { IToDo } from './interfaces/todo-interface';
 import { ToDoService } from './services/to-do.service';
 
