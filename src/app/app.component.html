@@ -1,17 +1,15 @@
 <div class="flex flex-column align-items-center justify-content-center">
   <p-card header="Todo" class="w-8">
     <div class="m-2 flex">
-      <div class="card flex justify-content-center">
+      <div>
         <input
           type="text"
-          id="taskInput"
           pInputText
           [(ngModel)]="task"
           placeholder="Enter new todo"
           #todoTask="ngModel"
           required
         />
-        <label for="taskInput">Username</label>
       </div>
       <p-button
         icon="pi pi-check"

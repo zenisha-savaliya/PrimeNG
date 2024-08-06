@@ -28,9 +28,7 @@ export class AppComponent implements OnInit {
       next: (res) => {
         this.todos = res;
       },
-      error: (err) => {
-        console.log(err);
-      },
+      error: (err) => {},
     });
   }
 
@@ -38,12 +36,8 @@ export class AppComponent implements OnInit {
     this.todoService
       .updateTodo({ ...todo, completed: event.checked })
       .subscribe({
-        next: (res) => {
-          console.log(res);
-        },
-        error: (err) => {
-          console.log(err);
-        },
+        next: (res) => {},
+        error: (err) => {},
       });
   }
 
@@ -67,9 +61,7 @@ export class AppComponent implements OnInit {
             });
             this.getList();
           },
-          error: (err) => {
-            console.log(err);
-          },
+          error: (err) => {},
         });
       }
     });
@@ -82,9 +74,7 @@ export class AppComponent implements OnInit {
         this.todoTask.control.reset();
         this.getList();
       },
-      error: (err) => {
-        console.log(err);
-      },
+      error: (err) => {},
     });
   }
 }
