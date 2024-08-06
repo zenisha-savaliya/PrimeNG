@@ -1,14 +1,54 @@
-<div class="card">
-  <h2>PrimeNG Autocomplete Example</h2>
-  <p-autoComplete
-    [suggestions]="suggestions"
-    (completeMethod)="search($event)"
-    placeholder="Type a country"
-  ></p-autoComplete>
+<div class="flex flex-column align-items-center justify-content-center">
+  <p-card header="Todo" class="w-8">
+    <div class="m-2 flex">
+      <div class="card flex justify-content-center">
+        <input
+          type="text"
+          id="taskInput"
+          pInputText
+          [(ngModel)]="task"
+          placeholder="Enter new todo"
+          #todoTask="ngModel"
+          required
+        />
+        <label for="taskInput">Username</label>
+      </div>
+      <p-button
+        icon="pi pi-check"
+        class="ml-1"
+        [disabled]="!!todoTask.invalid"
+        (onClick)="addTodo()"
+      />
+    </div>
+    <p class="m-0">
+      <p-table [value]="todos" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+          <tr>
+            <th [width]="'60%'">Task</th>
+            <th>Completed</th>
+            <th [width]="'5%'"></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-todo>
+          <tr>
+            <td>{{ todo.task }}</td>
+            <td>
+              <p-checkbox
+                [(ngModel)]="todo.completed"
+                [binary]="true"
+                (onChange)="updateTodo($event, todo)"
+              />
+            </td>
+            <td>
+              <p-button
+                severity="danger"
+                icon="pi pi-trash"
+                (onClick)="deleteTodo(todo?.id)"
+              />
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p>
+  </p-card>
 </div>
-<p-calendar
-  [showIcon]="true"
-  [showOnFocus]="false"
-  inputId="buttondisplay"
-  dateFormat="dd.mm.yy"
-/>

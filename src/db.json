@@ -1,0 +1,19 @@
+{
+  "todos": [
+    {
+      "id": "2948",
+      "task": "complete primeNg table",
+      "completed": false
+    },
+    {
+      "id": "ba43",
+      "task": "Try to implement state management in existing to do application",
+      "completed": false
+    },
+    {
+      "id": "ae5b",
+      "task": "complete poster",
+      "completed": false
+    }
+  ]
+}

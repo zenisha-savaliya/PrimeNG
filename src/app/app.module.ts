@@ -2,11 +2,15 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { CheckboxModule } from 'primeng/checkbox';
+import { InputTextModule } from 'primeng/inputtext';
+import { TableModule } from 'primeng/table';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AutoCompleteModule } from 'primeng/autocomplete';
-import { FormsModule } from '@angular/forms';
-import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,9 +18,13 @@ import { CalendarModule } from 'primeng/calendar';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AutoCompleteModule,
+    CardModule,
+    TableModule,
+    CheckboxModule,
     FormsModule,
-    CalendarModule,
+    ButtonModule,
+    InputTextModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
