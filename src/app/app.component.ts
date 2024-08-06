@@ -5,6 +5,10 @@ import Swal from 'sweetalert2';
 import { PaginatorState } from './interfaces/page-state.interface';
 import { IToDo } from './interfaces/todo-interface';
 import { ToDoService } from './services/to-do.service';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import * as TodoActions from './state/todo.actions';
+import * as TodoSelectors from './state/todo.selectors';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +16,9 @@ import { ToDoService } from './services/to-do.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  public todos$!: Observable<IToDo[]>;
+  public loading$!: Observable<boolean>;
+  public error$!: Observable<string | undefined>;
   public title = 'learning-prime-ng';
   public task = '';
   public todos: IToDo[] = [];
@@ -19,10 +26,14 @@ export class AppComponent implements OnInit {
   public rows: number = 5;
   @ViewChild('todoTask') todoTask!: NgModel;
 
-  constructor(private todoService: ToDoService) {}
+  constructor(private todoService: ToDoService, private store: Store) {}
 
   ngOnInit(): void {
     this.getList();
+    this.store.dispatch(TodoActions.loadTodos());
+    this.todos$ = this.store.select(TodoSelectors.selectTodos);
+    this.loading$ = this.store.select(TodoSelectors.selectLoading);
+    this.error$ = this.store.select(TodoSelectors.selectError);
   }
 
   public getList(): void {

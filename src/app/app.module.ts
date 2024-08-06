@@ -4,14 +4,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
+import { PaginatorModule } from 'primeng/paginator';
 import { TableModule } from 'primeng/table';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PaginatorModule } from 'primeng/paginator';
+import todoReducer from './state/todo.reducer';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +29,7 @@ import { PaginatorModule } from 'primeng/paginator';
     InputTextModule,
     HttpClientModule,
     PaginatorModule,
+    StoreModule.forRoot({ todos: todoReducer }),
   ],
   providers: [],
   bootstrap: [AppComponent],
