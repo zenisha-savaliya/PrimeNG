@@ -13,7 +13,9 @@ import { PaginatorModule } from 'primeng/paginator';
 import { TableModule } from 'primeng/table';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import todoReducer from './state/todo.reducer';
+import todoReducer from './store/todo.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { TodosEffects } from './store/todo.effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,6 +32,7 @@ import todoReducer from './state/todo.reducer';
     HttpClientModule,
     PaginatorModule,
     StoreModule.forRoot({ todos: todoReducer }),
+    EffectsModule.forRoot([TodosEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],

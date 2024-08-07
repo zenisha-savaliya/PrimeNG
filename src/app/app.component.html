@@ -20,7 +20,7 @@
     </div>
     <p class="m-0">
       <p-table
-        [value]="todos"
+        [value]="(todos$ | async) || []"
         [tableStyle]="{ 'min-width': '50rem' }"
         [paginator]="true"
         [rows]="rows"

@@ -5,9 +5,7 @@ export const loadTodos = createAction('[Todos] Load Todos');
 
 export const loadTodosSuccess = createAction(
   '[Todos] Load Todos Success',
-  props<{
-    todos: IToDo[];
-  }>()
+  props<{ todos: IToDo[] }>()
 );
 
 export const loadTodosFailure = createAction(
@@ -17,11 +15,6 @@ export const loadTodosFailure = createAction(
 
 export const addTodo = createAction(
   '[Todos] Add Todo',
-  props<{ todo: IToDo }>()
-);
-
-export const addTodoSuccess = createAction(
-  '[Todos] Add Todo Success',
   props<{ todo: IToDo }>()
 );
 
@@ -35,8 +28,6 @@ export const updateTodo = createAction(
   props<{ todo: IToDo }>()
 );
 
-export const updateTodoSuccess = createAction('[Todos] Update Todo Success');
-
 export const updateTodoFailure = createAction(
   '[Todos] Update Todo Failure',
   props<{ error: string }>()
@@ -46,8 +37,6 @@ export const deleteTodo = createAction(
   '[Todos] Delete Todo',
   props<{ id: string }>()
 );
-
-export const deleteTodoSuccess = createAction('[Todos] Delete Todo Success');
 
 export const deleteTodoFailure = createAction(
   '[Todos] Delete Todo Failure',

@@ -7,8 +7,8 @@ import { IToDo } from './interfaces/todo-interface';
 import { ToDoService } from './services/to-do.service';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import * as TodoActions from './state/todo.actions';
-import * as TodoSelectors from './state/todo.selectors';
+import * as TodoActions from './store/todo.actions';
+import * as TodoSelectors from './store/todo.selectors';
 
 @Component({
   selector: 'app-root',
@@ -29,7 +29,6 @@ export class AppComponent implements OnInit {
   constructor(private todoService: ToDoService, private store: Store) {}
 
   ngOnInit(): void {
-    this.getList();
     this.store.dispatch(TodoActions.loadTodos());
     this.todos$ = this.store.select(TodoSelectors.selectTodos);
     this.loading$ = this.store.select(TodoSelectors.selectLoading);
@@ -38,9 +37,7 @@ export class AppComponent implements OnInit {
 
   public getList(): void {
     this.todoService.getTodoList().subscribe({
-      next: (res) => {
-        this.todos = res;
-      },
+      next: (res) => {},
       error: (err) => {},
     });
   }
