@@ -1,0 +1,29 @@
+@if(isLoading){
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#fff"
+  type="square-jelly-box"
+  [fullScreen]="true"
+>
+  <p style="color: white">Loading...</p>
+</ngx-spinner>
+} @if(isError){
+<p>An error occurred while loading photos.</p>
+} @if(!isLoading && !isError){
+<div class="flex flex-wrap justify-content-between">
+  @for (photo of photos; track photo.id) {
+  <div
+    class="p-card col-md-4 m-1 d-flex flex-column align-items-center"
+    style="width: 200px; height: 250px"
+  >
+    <img
+      src="{{ photo.thumbnailUrl }}"
+      alt="{{ photo.title }}"
+      class="mb-2 img-style"
+    />
+    <h5 class="text-center">{{ photo.title }}</h5>
+  </div>
+  }
+</div>
+}
