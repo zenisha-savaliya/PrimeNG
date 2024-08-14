@@ -17,10 +17,12 @@ export class PhotosComponent implements OnInit {
   isLoading: boolean = true;
   isError: boolean = false;
   photos: IPhoto[] = [];
+
   constructor(
     private photoService: PhotoService,
     private spinner: NgxSpinnerService
   ) {}
+
   ngOnInit(): void {
     this.spinner.show();
     this.photoService.getPhotos().subscribe({
@@ -30,6 +32,7 @@ export class PhotosComponent implements OnInit {
       },
       error: (err) => {
         this.isError = true;
+        this.isLoading = false;
       },
     });
   }
