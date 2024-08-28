@@ -16,6 +16,15 @@ import * as TodoSelectors from './store/todo.selectors';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  public themes = [
+    { id: 'bootstrap4-dark-blue', label: 'Bootstrap4 Dark Blue' },
+    {
+      id: 'lara-light-blue',
+      label: 'Lara Light Blue',
+    },
+    { id: 'soho-dark', label: 'Soho Dark' },
+  ];
+  public selectedTheme: { id: string; label: string } = this.themes[0];
   public todos$!: Observable<IToDo[]>;
   public loading$!: Observable<boolean>;
   public error$!: Observable<string | undefined>;
@@ -91,5 +100,10 @@ export class AppComponent implements OnInit {
   public onPageChange(event: PaginatorState) {
     if (event.first) this.first = event.first;
     if (event.rows) this.rows = event.rows;
+  }
+
+  public changeTheme(e: any) {
+    const id = e.value.id;
+    this.todoService.switchTheme(id);
   }
 }

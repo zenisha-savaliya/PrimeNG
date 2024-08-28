@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { IToDo } from '../interfaces/todo-interface';
 import { Observable } from 'rxjs';
+import { DOCUMENT } from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,10 @@ import { Observable } from 'rxjs';
 export class ToDoService {
   private baseUrl = 'http://localhost:3000';
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(
+    private httpClient: HttpClient,
+    @Inject(DOCUMENT) private document: Document
+  ) {}
 
   public getTodoList(): Observable<IToDo[]> {
     return this.httpClient.get<IToDo[]>(`${this.baseUrl}/todos`);
@@ -25,5 +29,14 @@ export class ToDoService {
 
   public deleteTodo(id: string) {
     return this.httpClient.delete(`${this.baseUrl}/todos/${id}`);
+  }
+
+  public switchTheme(theme: string) {
+    let themeLink = this.document.getElementById(
+      'app-theme'
+    ) as HTMLLinkElement;
+    if (themeLink) {
+      themeLink.href = `${theme}.css`;
+    }
   }
 }

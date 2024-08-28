@@ -16,6 +16,7 @@ import { AppComponent } from './app.component';
 import todoReducer from './store/todo.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { TodosEffects } from './store/todo.effects';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,6 +32,7 @@ import { TodosEffects } from './store/todo.effects';
     InputTextModule,
     HttpClientModule,
     PaginatorModule,
+    DropdownModule,
     StoreModule.forRoot({ todos: todoReducer }),
     EffectsModule.forRoot([TodosEffects]),
   ],

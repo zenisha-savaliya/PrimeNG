@@ -1,5 +1,11 @@
 <div class="flex flex-column align-items-center justify-content-center">
-  <p-card header="Todo" class="w-8">
+  <p-dropdown
+    [options]="themes"
+    [(ngModel)]="selectedTheme"
+    (onChange)="changeTheme($event)"
+    class="my-3"
+  ></p-dropdown>
+  <p-card header="Todo Application using PrimeNG" class="w-8">
     <div class="m-2 flex">
       <div>
         <input
