@@ -35,9 +35,9 @@
       >
         <ng-template pTemplate="header">
           <tr>
-            <th [width]="'60%'">Task</th>
-            <th>Completed</th>
-            <th [width]="'5%'"></th>
+            <th id="task-header" style="width: 60%">Task</th>
+            <th id="completed-header">Completed</th>
+            <th id="actions-column" style="width: 5%"></th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-todo>
