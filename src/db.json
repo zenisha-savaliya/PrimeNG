@@ -1,11 +1,6 @@
 {
   "todos": [
     {
-      "id": "2948",
-      "task": "complete primeNg table",
-      "completed": false
-    },
-    {
       "id": "ba43",
       "task": "Try to implement state management in existing to do application",
       "completed": true
@@ -63,6 +58,16 @@
     {
       "id": "e62e",
       "task": "fffffg",
+      "completed": false
+    },
+    {
+      "id": "623c",
+      "task": "completed prime ng table",
+      "completed": false
+    },
+    {
+      "id": "669a",
+      "task": "hhh",
       "completed": false
     }
   ]
