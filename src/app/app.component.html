@@ -1,1 +1,16 @@
-@defer (on timer(500ms)) {<app-photos></app-photos> }
+<app-demo></app-demo>
+<div class="card my-2 flex justify-content-center">
+  <button
+    #click
+    pButton
+    pRipple
+    (click)="loadPhotos()"
+    [classList]="isLoaded ? 'p-button-success' : 'hidden'"
+  >
+    <i class="pi pi-spin pi-cog m-1" style="font-size: 2rem"></i>Click to load
+    photos
+  </button>
+</div>
+@defer (on interaction(click)) {<app-photos></app-photos> } @error {
+<p>Error in defer block loading</p>
+}

@@ -14,4 +14,10 @@ export class PhotoService {
       'https://jsonplaceholder.typicode.com/photos'
     );
   }
+
+  print(val: any, containerId: string): void {
+    let el = document.createElement('li');
+    el.innerText = val;
+    document.getElementById(containerId)?.appendChild(el);
+  }
 }
